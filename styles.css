@@ -1,0 +1,168 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Inter', sans-serif;
+    color: rgb(255, 255, 255);
+    background: linear-gradient(135deg, #b38a00, #377fbd, #ff6a00);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    overflow-x: hidden;
+    position: relative;
+    z-index: 0;
+}
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+@keyframes gradientShift {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 20px 40px;
+    justify-content: flex-start;
+    gap: 40px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.logo img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #ff9900;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 60px;
+    height: calc(100vh - 80px);
+    position: relative;
+}
+
+.hero-text {
+    max-width: 600px;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.italic-bold-bg {
+    font-style: italic;
+    font-weight: 700;
+    background-color: rgba(0,0,0,0.6);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.highlight {
+    color: #45ffb5;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.hero-text p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+.hero-text button {
+    background-color: #3b82f6;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.hero-text button:hover {
+    background-color: #2563eb;
+}
+
+/* Hero logos */
+.hero-logos {
+    position: relative;
+    width: 200px;
+    height: 300px;
+}
+
+.hero-logos img {
+    position: absolute;
+    max-width: 290%;
+    object-fit: contain;
+    mix-blend-mode: screen;
+}
+
+.rotated-logo {
+    top: 50px;
+    right: 0;
+    width: 240px;
+    filter: drop-shadow(0 0 2px rgba(0,0,0,0.5));
+}
+
+.bottom-logo {
+    bottom: 20px;
+    right: 0;
+    width: 140px;
+    filter: drop-shadow(0 0 2px rgba(0,0,0,0.5));
+}
+
+/* Bottom wave shape */
+.bottom-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: rgb(255, 255, 255);
+    border-radius: 100% / 50%;
+    filter: drop-shadow(0 -2px 4px rgba(0, 0, 0, 0.126));
+}
