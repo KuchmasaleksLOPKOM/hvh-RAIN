@@ -1,93 +1,567 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>MoscowRP</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Антивирус Картошка - Надёжная защита вашего компьютера</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #f97316, #ea580c);
+        }
+        
+        .demo-app {
+            background: linear-gradient(135deg, #1f2937, #111827);
+        }
+        
+        .mobile-menu {
+            display: none;
+        }
+        
+        .mobile-menu.open {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+        }
+        
+        .threat-item {
+            transition: all 0.3s ease;
+        }
+        
+        .threat-item:hover {
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
-<body>
-    <div id="particles-js"></div>
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <img src="5341649572361011941.jpg" alt="Moscow Roleplay Logo" style="mix-blend-mode: screen;" />
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="#">отвызовы</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="hero">
-            <div class="hero-text">
-                <h1>
-                    <span class="italic-bold-bg">HVH Rain</span> — чит hvh для <span class="highlight">cs 2 - csgo </span> для тебя и твоих <span class="bold">друзей</span>
-                </h1>
-                <div class="text-with-image">
-                    <p>
-                        Чит созданный в 2018 году поддерживает свою стабильность и даёт своим игрокам лучшие ощущения после игры с читом.
-                    </p>
-                    <img src="https://count.getloli.com/@KuchmasaleksLOPKOM?name=KuchmasaleksLOPKOM&theme=booru-lewd&padding=7&offset=0&align=bottom&scale=1&pixelated=1&darkmode=0&prefix=0" alt=":name" class="inline-image" id="dynamic-image" />
+<body class="bg-white text-gray-900">
+    <!-- Header -->
+    <header class="border-b bg-white/95 backdrop-blur sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex h-16 items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <span class="text-xl font-semibold">Антивирус Картошка</span>
                 </div>
-                <button>Приобрести донат</button>
-            </div>
-            <div class="hero-logos">
-                <img src="5341649572361011941.jpg" alt="Rotated Gambit Roleplay Logo" class="rotated-logo" />
-            </div>
-        </section>
-    </main>
+                
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav flex items-center gap-6">
+                    <a href="#features" class="hover:text-orange-500 transition-colors">Функции</a>
+                    <a href="#demo" class="hover:text-orange-500 transition-colors">Демо</a>
+                    <a href="#download" class="hover:text-orange-500 transition-colors">Скачать</a>
+                    <button class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg transition-colors">Получить сейчас</button>
+                </nav>
 
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+                <!-- Mobile menu button -->
+                <button class="md:hidden p-2" onclick="toggleMobileMenu()">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <nav class="mobile-menu md:hidden py-4 border-t" id="mobileMenu">
+                <div class="flex flex-col gap-4">
+                    <a href="#features" class="hover:text-orange-500 transition-colors">Функции</a>
+                    <a href="#demo" class="hover:text-orange-500 transition-colors">Демо</a>
+                    <a href="#download" class="hover:text-orange-500 transition-colors">Скачать</a>
+                    <button class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg transition-colors w-fit">Получить сейчас</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-20 lg:py-32">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-block mb-6 bg-orange-100 text-orange-700 px-4 py-2 rounded-full text-sm font-medium">
+                        🛡️ Надёжная защита
+                    </div>
+                    <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+                        Антивирус <span class="text-orange-500">Картошка</span>
+                        <br />
+                        Защищает ваш компьютер
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                        Мощный и лёгкий антивирус, который защитит ваш компьютер от всех видов угроз. 
+                        Обнаруживает вирусы, трояны, шпионские программы и другие вредоносные файлы. Spoller--мне было лень делать самому так что в figme сделал через ии а демо наверное буду клпировать из figma потому что ии это тож сделал
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-medium transition-colors flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                            Скачать бесплатно
+                        </button>
+                        <button class="border-2 border-gray-300 hover:border-orange-500 text-gray-700 hover:text-orange-500 px-8 py-4 rounded-lg text-lg font-medium transition-colors">
+                            Смотреть демо
+                        </button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img 
+                        src="https://pngspot.com/preview/trollface-1334762.png"
+                        alt="Cybersecurity protection"
+                        class="rounded-lg shadow-2xl w-full"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">Почему выбирают Картошку?</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Комплексная защита с минимальным влиянием на производительность системы
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-sm border">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Защита в реальном времени</h3>
+                    <p class="text-gray-600">
+                        Мониторинг системы 24/7 с мгновенным обнаружением и блокировкой угроз
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Быстрая работа</h3>
+                    <p class="text-gray-600">
+                        Минимальное потребление ресурсов - ваш компьютер остаётся быстрым
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Веб-защита</h3>
+                    <p class="text-gray-600">
+                        Блокировка вредоносных сайтов и защита от фишинга при интернет-сёрфинге
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border">
+                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Умное сканирование</h3>
+                    <p class="text-gray-600">
+                        Продвинутые алгоритмы для обнаружения новых и неизвестных угроз
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Защита данных</h3>
+                    <p class="text-gray-600">
+                        Шифрование важных файлов и защита от кражи персональной информации
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Простота использования</h3>
+                    <p class="text-gray-600">
+                        Интуитивный интерфейс - устанавливайте и забудьте о вирусах
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">Как выглядит Антивирус Картошка</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Современный и понятный интерфейс для эффективной защиты вашего компьютера
+                </p>
+            </div>
+            
+            <!-- Antivirus Demo -->
+            <div class="demo-app rounded-lg p-6 max-w-4xl mx-auto">
+                <!-- Header приложения -->
+                <div class="flex items-center justify-between mb-6 bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-semibold">Антивирус Картошка</h3>
+                            <p class="text-gray-400 text-sm">Версия 2.1.0</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">Защищён</span>
+                        <button class="text-gray-300 border border-gray-600 p-2 rounded">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Главная панель -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Статус защиты -->
+                    <div class="bg-gray-800 border border-gray-700 rounded-lg p-4">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold">Система защищена</h4>
+                                <p class="text-gray-400 text-sm">Последнее сканирование: 2 часа назад</p>
+                            </div>
+                        </div>
+                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                            Запустить полное сканирование
+                        </button>
+                    </div>
+
+                    <!-- Статистика -->
+                    <div class="bg-gray-800 border border-gray-700 rounded-lg p-4">
+                        <div class="flex items-center gap-2 mb-4">
+                            <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                            <h4 class="text-white font-semibold">Статистика защиты</h4>
+                        </div>
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-400">Проверено файлов</span>
+                                    <span class="text-white">1,247,893</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-blue-600 h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-400">Заблокировано угроз</span>
+                                    <span class="text-white">142</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-green-600 h-2 rounded-full" style="width: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Обнаруженные угрозы -->
+                <div class="bg-gray-800 border border-gray-700 rounded-lg p-4 mt-6">
+                    <h4 class="text-white font-semibold mb-4">Последние обнаруженные угрозы</h4>
+                    <div class="space-y-3">
+                        <div class="threat-item flex items-center justify-between p-3 bg-red-900/20 rounded-lg border border-red-800">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.5 0L4.268 13.5c-.77.833.192 2.5 1.732 2.5z"/>
+                                </svg>
+                                <div>
+                                    <p class="text-white font-medium">Trojan.Win32.Potato.exe</p>
+                                    <p class="text-red-400 text-sm">Высокая угроза • Карантин</p>
+                                </div>
+                            </div>
+                            <span class="bg-red-600 text-white px-3 py-1 rounded-full text-sm">Заблокирован</span>
+                        </div>
+                        
+                        <div class="threat-item flex items-center justify-between p-3 bg-yellow-900/20 rounded-lg border border-yellow-800">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.5 0L4.268 13.5c-.77.833.192 2.5 1.732 2.5z"/>
+                                </svg>
+                                <div>
+                                    <p class="text-white font-medium">Suspicious.Cookie.tracker</p>
+                                    <p class="text-yellow-400 text-sm">Средняя угроза • Удалён</p>
+                                </div>
+                            </div>
+                            <span class="bg-yellow-600 text-white px-3 py-1 rounded-full text-sm">Очищен</span>
+                        </div>
+                        
+                        <div class="threat-item flex items-center justify-between p-3 bg-green-900/20 rounded-lg border border-green-800">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <div>
+                                    <p class="text-white font-medium">System.Update.valid</p>
+                                    <p class="text-green-400 text-sm">Безопасно • Разрешён</p>
+                                </div>
+                            </div>
+                            <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">Безопасно</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Защита в реальном времени -->
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
+                    <div class="bg-gray-800 border border-gray-700 rounded-lg p-4 text-center">
+                        <svg class="w-8 h-8 text-green-400 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                        <p class="text-white text-sm font-medium">Защита файлов</p>
+                        <p class="text-green-400 text-xs">Активна</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 border border-gray-700 rounded-lg p-4 text-center">
+                        <svg class="w-8 h-8 text-green-400 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                        <p class="text-white text-sm font-medium">Веб-защита</p>
+                        <p class="text-green-400 text-xs">Активна</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 border border-gray-700 rounded-lg p-4 text-center">
+                        <svg class="w-8 h-8 text-green-400 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                        <p class="text-white text-sm font-medium">Email защита</p>
+                        <p class="text-green-400 text-xs">Активна</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 border border-gray-700 rounded-lg p-4 text-center">
+                        <svg class="w-8 h-8 text-blue-400 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                        <p class="text-white text-sm font-medium">Обновления</p>
+                        <p class="text-blue-400 text-xs">Автоматически</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Threat Prevention -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl lg:text-4xl font-bold mb-6">
+                        Защита от всех типов угроз
+                    </h2>
+                    <p class="text-xl text-gray-600 mb-8">
+                        Картошка обнаруживает и блокирует вирусы, трояны, червей, 
+                        рекламное ПО, шпионские программы и другие виды вредоносного ПО.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>Вирусы</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>Трояны</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>Руткиты</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>Шпионское ПО</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>Рекламное ПО</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>Фишинг</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img 
+                        src="https://images.unsplash.com/photo-1692772819238-7c3fd60917cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb21wdXRlciUyMHZpcnVzJTIwbWFsd2FyZSUyMHNjcmVlbnxlbnwxfHx8fDE3NTg1MzM2MzV8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                        alt="Computer security threats"
+                        class="rounded-lg shadow-xl w-full"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-6">
+                    Начните защищать свой компьютер сегодня
+                </h2>
+                <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Скачайте Антивирус Картошка бесплатно и получите надёжную защиту 
+                    для вашего компьютера уже через несколько минут.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                    <button class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-medium transition-colors flex items-center justify-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        Скачать для Windows
+                    </button>
+                    <button class="border-2 border-gray-300 hover:border-orange-500 text-gray-700 hover:text-orange-500 px-8 py-4 rounded-lg text-lg font-medium transition-colors">
+                        Системные требования
+                    </button>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                    <div class="text-center">
+                        <div class="text-3xl mb-2">🚀</div>
+                        <h3 class="text-xl font-semibold mb-2">Быстрая установка</h3>
+                        <p class="text-gray-600">Устанавливается за 2 минуты</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl mb-2">🆓</div>
+                        <h3 class="text-xl font-semibold mb-2">Бесплатно навсегда</h3>
+                        <p class="text-gray-600">Полная защита без оплаты</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl mb-2">🔄</div>
+                        <h3 class="text-xl font-semibold mb-2">Автообновления</h3>
+                        <p class="text-gray-600">Всегда актуальная защита</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-semibold">Антивирус Картошка</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Надёжная защита вашего компьютера от всех видов угроз.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Продукт</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Функции</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Системные требования</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Скачать</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Поддержка</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Контакты</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Документация</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Компания</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">О нас</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Блог</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Карьера</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Антивирус Картошка. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
     <script>
-        particlesJS('particles-js', {
-            "particles": {
-                "number": {
-                    "value": 200,
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#ffffff"
-                },
-                "shape": {
-                    "type": "circle"
-                },
-                "opacity": {
-                    "value": 1,
-                    "random": false
-                },
-                "size": {
-                    "value": 2,
-                    "random": true
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 0.5,
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('open');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": false
-                    },
-                    "onclick": {
-                        "enable": false
-                    },
-                    "resize": true
-                }
-            },
-            "retina_detect": true
+                // Close mobile menu if open
+                const menu = document.getElementById('mobileMenu');
+                menu.classList.remove('open');
+            });
         });
     </script>
 </body>
